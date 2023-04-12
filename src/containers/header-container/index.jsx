@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import useServices from '@src/utils/hooks/use-services';
-import { Layout, Menu } from 'antd';
-const { Header } = Layout;
+import { Menu } from 'antd';
+import LayoutHeader from '@src/components/layouts/layout-header';
 
 function HeaderContainer() {
   const location = useLocation();
@@ -34,7 +34,7 @@ function HeaderContainer() {
   };
 
   return (
-    <Header>
+    <LayoutHeader>
       <Menu
         theme="dark"
         mode="horizontal"
@@ -42,7 +42,7 @@ function HeaderContainer() {
         items={items}
         onClick={callbacks.onClick}
       />
-    </Header>
+    </LayoutHeader>
   );
 }
 

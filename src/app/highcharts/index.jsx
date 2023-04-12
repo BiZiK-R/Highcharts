@@ -8,15 +8,6 @@ import useServices from '@src/utils/hooks/use-services';
 import useSelector from '@src/utils/hooks/use-selector';
 import { Spin } from 'antd';
 
-const optionsDefault = {
-  chart: {
-    type: 'column',
-  },
-  xAxis: {
-    type: 'category',
-  },
-};
-
 function HighchartsPage() {
   const services = useServices();
   const select = useSelector((state) => ({
@@ -29,7 +20,12 @@ function HighchartsPage() {
   }, []);
 
   const options = useMemo(() => ({
-    ...optionsDefault,
+    chart: {
+      type: 'column',
+    },
+    xAxis: {
+      type: 'category',
+    },
     title: {
       text: 'BiZiK-R',
     },

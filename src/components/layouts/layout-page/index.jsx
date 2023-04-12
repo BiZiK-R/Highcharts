@@ -1,39 +1,21 @@
 import React from 'react';
-import { Layout, theme } from 'antd';
+import { Layout } from 'antd';
 import './style.css';
 import PropTypes from 'prop-types';
 
-const { Header, Content, Footer } = Layout;
+const { Content } = Layout;
 
 function LayoutPage(props) {
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
 
   return (
     <Layout className="layout">
-      <Header>
-        <div className="logo" />
-        {props.header}
-      </Header>
-      <Content style={{ padding: '0 50px' }}>
-        <div className="site-layout-content"
-          style={{
-            background: colorBgContainer,
-          }}
-        >
+      {props.header}
+      <Content className='content'>
+        <div className="site-layout-content">
           {props.children || props.content}
         </div>
       </Content>
-      {props.footer &&
-        <Footer
-          style={{
-            textAlign: 'center',
-          }}
-        >
-          {props.footer}
-        </Footer>
-      }
+      {props.footer}
     </Layout>
   );
 }
